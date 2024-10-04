@@ -1,20 +1,13 @@
 "use server";
 
 import { Octokit, RestEndpointMethodTypes } from "@octokit/rest";
+import ICommit from "./@types";
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_ACCESS_TOKEN || "",
 });
 const owner = process.env.GITHUB_USERNAME || "";
 const repo = process.env.GITHUB_REPO || "";
-
-export default interface ICommit {
-  sha: string;
-  message: string;
-  authorName: string | null;
-  authorLogin: string | null;
-  date: string | null;
-}
 
 export async function getCommits(): Promise<ICommit[]> {
   try {

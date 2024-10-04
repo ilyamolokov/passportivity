@@ -1,8 +1,4 @@
-"use client";
-
 import RefreshButton from "./refresh-button";
-import { getCommits } from "../actions";
-import { useFormState } from "react-dom";
 
 interface RefreshFormProps {
   onRefresh: () => void;
