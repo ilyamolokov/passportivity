@@ -6,6 +6,7 @@ import { getCommits } from "../actions";
 import ICommit from "../@types";
 import Commits from "./commits";
 import Loading from "../loading";
+import Skeleton from "./skeleton";
 
 interface RepositoryInfoProps {
   commits: ICommit[];
@@ -28,10 +29,10 @@ const RepositoryInfo = (props: RepositoryInfoProps) => {
     });
 
   return (
-    <section className="w-full h-full flex flex-col items-center gap-5 py-12 px-3">
+    <section className="w-full flex flex-col items-center gap-5 py-12 px-3">
       <RefreshForm onRefresh={handleRefresh} />
 
-      {!isPending ? <Commits commits={commits} /> : <Loading />}
+      {!isPending ? <Commits commits={commits} /> : <Skeleton />}
     </section>
   );
 };
