@@ -11,7 +11,11 @@ const repo = process.env.GITHUB_REPO || "";
 
 export async function getCommits(): Promise<ICommit[]> {
   try {
-    const response = await octokit.repos.listCommits({ owner, repo });
+    const response = await octokit.repos.listCommits({
+      owner,
+      repo,
+      sha: "master",
+    });
     const data = response.data;
     const result = data.map((commit) => ({
       sha: commit.sha,
