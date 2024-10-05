@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useTransition } from "react";
 import RefreshForm from "./refresh-form";
 import { getCommits } from "../actions/getCommits";
 import ICommit from "../types";
@@ -12,16 +12,13 @@ interface RepositoryInfoProps {
 }
 
 const RepositoryInfo = (props: RepositoryInfoProps) => {
-  const { commits: initialCommits } = props;
-
-  const [commits, setCommits] = useState(initialCommits);
+  const { commits } = props;
   const [isPending, startTransition] = useTransition();
 
   const handleRefresh = () =>
     startTransition(async () => {
       try {
-        const data = await getCommits();
-        setCommits(data);
+        await getCommits();
       } catch (e) {
         console.error("Failed to fetch commits:", e);
       }

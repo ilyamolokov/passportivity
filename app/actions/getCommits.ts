@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { Octokit } from "@octokit/rest";
 import ICommit from "../types";
 
@@ -24,6 +25,9 @@ export async function getCommits(): Promise<ICommit[]> {
       authorLogin: commit.author?.login ?? null,
       date: commit.commit.author?.date ?? null,
     }));
+
+    revalidatePath('/')
+    
     return result;
   } catch (error: unknown) {
     throw new Error(
