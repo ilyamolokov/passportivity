@@ -1,5 +1,3 @@
-"use client";
-
 import Skeleton from "./components/skeleton";
 
 const Loading = () => {
