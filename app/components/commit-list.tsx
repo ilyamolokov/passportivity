@@ -1,5 +1,5 @@
 import Commit from "./commit";
-import ICommit from "../@types/ICommit";
+import ICommit from "../types";
 
 interface CommitsProps {
   commits: ICommit[];

@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import RefreshForm from "./refresh-form";
 import { getCommits } from "../actions/getCommits";
-import ICommit from "../@types/ICommit";
+import ICommit from "../types";
 import CommitList from "./commit-list";
 import Skeleton from "./skeleton";
 

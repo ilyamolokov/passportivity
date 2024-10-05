@@ -1,7 +1,7 @@
 "use server";
 
 import { Octokit } from "@octokit/rest";
-import ICommit from "../@types/ICommit";
+import ICommit from "../types";
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_ACCESS_TOKEN || "",
