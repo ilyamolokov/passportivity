@@ -6,6 +6,7 @@ const Skeleton = () => {
       <div className="flex flex-col w-full max-w-screen-md gap-4">
         {[1, 2, 3, 4, 5].map((i) => (
           <div
+            key={i}
             style={{
               animationDelay: `${i * 0.05}s`,
               animationDuration: "1s",

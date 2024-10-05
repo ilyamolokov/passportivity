@@ -1,11 +1,11 @@
 import Commit from "./commit";
-import ICommit from "../@types";
+import ICommit from "../@types/ICommit";
 
 interface CommitsProps {
   commits: ICommit[];
 }
 
-const Commits = (props: CommitsProps) => {
+const CommitList = (props: CommitsProps) => {
   const { commits } = props;
   const totalCommits = commits.length;
 
@@ -32,4 +32,4 @@ const Commits = (props: CommitsProps) => {
   );
 };
 
-export default Commits;
+export default CommitList;

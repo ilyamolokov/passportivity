@@ -2,10 +2,9 @@
 
 import { useState, useTransition } from "react";
 import RefreshForm from "./refresh-form";
-import { getCommits } from "../actions";
-import ICommit from "../@types";
-import Commits from "./commits";
-import Loading from "../loading";
+import { getCommits } from "../actions/getCommits";
+import ICommit from "../@types/ICommit";
+import CommitList from "./commit-list";
 import Skeleton from "./skeleton";
 
 interface RepositoryInfoProps {
@@ -32,7 +31,7 @@ const RepositoryInfo = (props: RepositoryInfoProps) => {
     <section className="w-full flex flex-col items-center gap-5 py-12 px-3">
       <RefreshForm onRefresh={handleRefresh} />
 
-      {!isPending ? <Commits commits={commits} /> : <Skeleton />}
+      {!isPending ? <CommitList commits={commits} /> : <Skeleton />}
     </section>
   );
 };
